@@ -1,4 +1,4 @@
-# Laporan Praktikum Jarkom Modul 1 dan 2gi
+# Laporan Praktikum Jarkom Modul 1 dan 2
 
 ## Tujuan Praktikum
 Mempelajari Wireshark
@@ -28,3 +28,28 @@ Mempelajari Wireshark
 ## Lampiran
 Hasil percobaan:
 ![Gambar 1](../assets/image/1.png)
+![Gambar 2](../assets/image/2.png)
+![Gambar 3](../assets/image/3.png)
+![Gambar 4](../assets/image/4.png)
+![Gambar 5](../assets/image/5.png)
+![Gambar 6](../assets/image/6.png)
+![Gambar 7](../assets/image/7.png)
+![Gambar 8](../assets/image/8.png)
+![Gambar 9](../assets/image/9.png)
+![Gambar 10](../assets/image/10.png)
+![Gambar 11](../assets/image/11.png)
+![Gambar 12](../assets/image/12.png)
+![Gambar 13](../assets/image/13.png)
+![Gambar 14](../assets/image/14.png)
+![Gambar 15](../assets/image/15.png)
+![Gambar 16](../assets/image/16.png)
+![Gambar 17](../assets/image/17.png)
+![Gambar 18](../assets/image/18.png)
+![Gambar 19](../assets/image/19.png)
+![Gambar 20](../assets/image/20.png)
+![Gambar 21](../assets/image/21.png)
+![Gambar 22](../assets/image/22.png)
+![Gambar 23](../assets/image/23.png)
+![Gambar 24](../assets/image/24.png)
+![Gambar 25](../assets/image/25.png)
+![Gambar 26](../assets/image/26.png)
