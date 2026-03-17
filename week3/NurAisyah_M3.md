@@ -14,6 +14,10 @@ NIM: 103072430015
 6. Terlihat pada jendela daftar paket menunjukkan ada 2 pesan HTTP yang tertangkap: pesan GET dan pesan respons dari server ke browser.
 
 **B. Hasil:**
+1. Tampilan URL
+![Gambar 1](../assets/image/27.png)
+2. Jendela daftar paket
+![Gambar 2](../assets/image/28.png)
 
 
 ### 3.2.1 HTTP CONDITIONAL GET/response interaction
@@ -26,6 +30,10 @@ NIM: 103072430015
 6. Gunakan filter "http" untuk menampilkan http saja di jendela daftar paket.
 
 **B. Hasil:**
+1. Tampilan URL
+![Gambar 3](../assets/image/29.png)
+2. Jendela daftar paket
+![Gambar 4](../assets/image/30.png)
 
 
 ## 3.3 Retrieving Long Documents
@@ -37,6 +45,10 @@ NIM: 103072430015
 5. Gunakan filter "http" untuk menampilkan http saja di jendela daftar paket.
 
 **B. Hasil:**
+1. Tampilan URL
+![Gambar 5](../assets/image/31.png)
+2. Jendela daftar paket
+![Gambar 6](../assets/image/32.png)
 
 
 ## 3.4 HTML Documents dengan Embedded Objects
@@ -48,6 +60,11 @@ NIM: 103072430015
 5. Gunakan filter "http" untuk menampilkan http saja di jendela daftar paket.
 
 **B. Hasil:**
+1. Tampilan URL
+![Gambar 7](../assets/image/33.png)
+2. Jendela daftar paket
+![Gambar 8](../assets/image/34.png)
+
 
 ## 3.5 HTT Authentication
 **A. Langkah-langkah:**
@@ -57,3 +74,11 @@ NIM: 103072430015
 4. Ketikkan username: "wireshark-students" dan passwordnya: network pada pop up yang muncul saat membuka URL.
 4. Jika sudah, lalu beralih lagi ke Wireshark dan stop capturing packets (logo stop bewarna merah).
 5. Gunakan filter "http" untuk menampilkan http saja di jendela daftar paket.
+
+**B. Hasil:**
+1. Tampilan pop-up
+![Gambar 9](../assets/image/35.png)
+2. Tampilan URL
+![Gambar 10](../assets/image/36.png)
+3. Jendela daftar paket
+![Gambar 11](../assets/image/37.png)
