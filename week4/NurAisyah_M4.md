@@ -11,9 +11,9 @@ Kelas: IF-04-02
 
 **Jawaban:**
 1. Dari pengujian yang dilakukan dihasilkan:
-- Tujuan: Mengetahui alamat IP dari server web di wilayah Asia menggunakan perintah nslookup.
-- Hasil:Domain *www.kompas.com* berhasil diterjemahkan menjadi beberapa alamat IP yaitu 13.35.1.33, 13.35.1.68, 13.35.1.20, dan 13.35.1.60. Domain tersebut merupakan website berbasis di Indonesia sehingga termasuk dalam wilayah Asia.
-- DNS Resolver: Permintaan diproses melalui DNS resolver lokal dengan alamat 192.168.0.1.
+    - Tujuan: Mengetahui alamat IP dari server web di wilayah Asia menggunakan perintah nslookup.
+    - Hasil:Domain *www.kompas.com* berhasil diterjemahkan menjadi beberapa alamat IP yaitu 13.35.1.33, 13.35.1.68, 13.35.1.20, dan 13.35.1.60. Domain tersebut merupakan website berbasis di Indonesia sehingga termasuk dalam wilayah Asia.
+    - DNS Resolver: Permintaan diproses melalui DNS resolver lokal dengan alamat 192.168.0.1.
 ![Gambar 1](../assets/image/55.png)
 2. Berdasarkan pengujian menggunakan perintah nslookup -type=NS cam.ac.uk, didapatkan informasi sebagai berikut:
 Identifikasi Server Otoritatif: Terdapat beberapa name server yang mengelola domain cam.ac.uk, di antaranya auth0.dns.cam.ac.uk, auth1.dns.cam.ac.uk, dns0.eng.cam.ac.uk, dns0.cl.cam.ac.uk, ns1.mythic-beasts.com, ns3.mythic-beasts.com, dan ns2.ic.ac.uk.
