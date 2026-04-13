@@ -74,3 +74,64 @@ Kelas: IF-04-02
     ![Gambar 17](../assets/image/70.png)
 
 **Langkah-langkah percobaan 2:**
+1. Mulai capture paket.
+2. Buka cmd dan ketik perintah "nslookup www.mit.edu".
+![Gambar 18](../assets/image/71.png)
+3. Stop capturing paket.
+
+**Pertanyaan:**
+1. Apa port tujuan pada pesan permintaan DNS? Apa port sumber pada pesan balasan DNS?
+    - Jawab: Port tujuan pada permintaan DNS adalah 53, sedangkan port sumber pada balasan DNS juga 53. Pada hasil Wireshark terlihat klien menggunakan port 52920 untuk mengirim permintaan ke server DNS melalui port 53.
+    ![Gambar 19](../assets/image/72.png)
+2. Ke alamat IP manakah pesan permintaan DNS dikirimkan? Apakah alamat IP tersebut merupakan default alamat IP server DNS lokal Anda?
+    - Jawab: Pesan permintaan DNS dikirim ke alamat IP 10.80.114.55. Ya, alamat IP tersebut merupakan alamat IP server DNS lokal, karena sesuai dengan yang digunakan sebagai resolver pada jaringan.
+    ![Gambar 20](../assets/image/73.png)
+3. Periksa pesan permintaan DNS. Apa “jenis” atau “type” dari pesan tersebut? Apakah pesan permintaan tersebut mengandung “jawaban” atau “answers”?
+    - Jawab: Jenis (type) pesan DNS tersebut adalah A (Address). Pesan permintaan tidak mengandung answers, karena hanya berisi permintaan untuk mencari alamat IP.
+    ![Gambar 21](../assets/image/74.png)
+4. Periksa pesan balasan DNS. Berapa banyak “jawaban” atau “answers” yang terdapat di dalamnya? Apa saja isi yang terkandung dalam setiap jawaban tersebut?
+    - Jawab: Jumlah answers pada pesan balasan DNS adalah 3.
+    ![Gambar 30](../assets/image/81.png)
+
+**Langkah-langkah percobaan 3:**
+1. Mulai capture paket.
+2. Buka cmd dan ketik perintah "nslookup –type=NS mit.edu".
+![Gambar 22](../assets/image/75.png)
+3. Stop capturing paket.
+
+**Pertanyaan:**
+1. Ke alamat IP manakah pesan permintaan DNS dikirimkan? Apakah alamat IP tersebut merupakan default alamat IP server DNS lokal Anda?
+    - Jawab: Pesan permintaan DNS dikirim ke alamat IP 192.168.0.1. Ya, alamat tersebut merupakan default DNS server lokal, karena merupakan gateway jaringan yang digunakan sebagai resolver DNS.
+    ![Gambar 23](../assets/image/76.png)
+2. Periksa pesan permintaan DNS. Apa ”jenis” atau ”type” dari pesan tersebut? Apakah pesan tersebut mengandung ”jawaban” atau ”answers”?
+    - Jawab: Jenis (type) pesan DNS adalah NS (Name Server). Pesan permintaan tidak mengandung answers, karena hanya berupa permintaan untuk mengetahui server DNS. 
+    ![Gambar 24](../assets/image/76.png)
+3. Periksa pesan balasan DNS. Apa nama server MIT yang diberikan oleh pesan balasan? Apakah pesan balasan ini juga memberikan alamat IP untuk server MIT tersebut?
+    - Jawab:Pesan balasan DNS memberikan beberapa nama server (NS) MIT, yaitu:
+        a. eur5.akam.net
+        b. ns1-37.akam.net
+        c. use5.akam.net
+        d. ns1-173.akam.net
+        e. asia1.akam.net
+        f. asia2.akam.net
+        h. use2.akam.net
+        i. usw2.akam.net
+    - Ya, pesan balasan juga memberikan alamat IP untuk beberapa server tersebut pada bagian Additional Records.
+    ![Gambar 25](../assets/image/77.png)
+
+**Langkah-langkah percobaan 4:**
+1. Mulai capture paket.
+2. Buka cmd dan ketik perintah "nslookup www.aiit.or.kr bitsy.mit.edu".
+![Gambar 26](../assets/image/78.png)
+3. Stop capturing paket.
+
+**Pertanyaan:**
+1. Ke alamat IP manakah pesan permintaan DNS dikirimkan? Apakah alamat IP tersebut merupakan default alamat IP server DNS lokal Anda?
+    - Jawab: Pesan permintaan DNS dikirim ke alamat IP 18.0.72.3. Tidak, alamat tersebut bukan DNS lokal, melainkan server DNS bitsy.mit.edu yang digunakan secara khusus pada perintah.
+    ![Gambar 27](../assets/image/79.png)
+2. Periksa pesan permintaan DNS. Apa ”jenis” atau ”type” dari pesan tersebut? Apakah pesan tersebut mengandung ”jawaban” atau ”answers”?
+    - Jawab: Jenis (type) pesan DNS adalah A (Address). Pesan permintaan tidak mengandung answers, karena hanya berupa permintaan untuk mencari alamat IP.
+    ![Gambar 28](../assets/image/79.png)
+3. Periksa pesan balasan DNS. Berapa banyak ”jawaban” atau “answers” yang terdapat di dalamnya. Apa saja isi yang terkandung dalam setiap jawaban tersebut?
+    - Jawab: Jumlah answersnya ada 2. Isi masing-masing jawabannya adalah 104.21.74.8 dan 172.67.152.120. Keduanya merupakan alamat IP (record A) untuk domain www.aiit.or.kr.
+    ![Gambar 29](../assets/image/80.png)
