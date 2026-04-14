@@ -12,11 +12,11 @@ Kelas: IF-04-02
 
 ## Pertanyaan:
 1. Pilih satu paket UDP yang terdapat pada trace Anda. Dari paket tersebut, berapa banyak “field” yang terdapat pada header UDP? Sebutkan nama-nama field yang Anda temukan!
-    - Jawab: Header UDP memiliki 4 field, yaitu:
-                - Source Port
-                - Destination Port
-                - Length
-                - Checksum
+    Jawab: Header UDP memiliki 4 field, yaitu:
+        - Source Port
+        - Destination Port
+        - Length
+        - Checksum
     ![Gambar 1](../assets/image/82.png)
 2. Perhatikan informasi “content field” pada paket yang Anda pilih di pertanyaan 1. Berapa panjang (dalam satuan byte) masing-masing “field” yang terdapat pada header UDP?
     - Jawab: Total panjang header UDP = 8 byte, dapat dilihat dari:
