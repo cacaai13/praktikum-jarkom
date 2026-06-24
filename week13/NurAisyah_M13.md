@@ -24,7 +24,7 @@ Kelas: IF-04-02
 
 3. Lalu ketik "arp -d *".
 ![Gambar 4](../assets/image/112.png)
-    - Pada tahap ini dilakukan penghapusan seluruh entri ARP cache menggunakan perintah arp -d *. Perintah tersebut menghapus entri ARP dinamis yang tersimpan pada komputer sehingga ketika perangkat kembali berkomunikasi dengan host lain, sistem harus melakukan proses ARP Request dan ARP Reply untuk memperoleh alamat MAC tujuan. Langkah ini dilakukan agar aktivitas ARP dapat diamati secara langsung melalui Wireshark.
+Pada tahap ini dilakukan penghapusan seluruh entri ARP cache menggunakan perintah arp -d *. Perintah tersebut menghapus entri ARP dinamis yang tersimpan pada komputer sehingga ketika perangkat kembali berkomunikasi dengan host lain, sistem harus melakukan proses ARP Request dan ARP Reply untuk memperoleh alamat MAC tujuan. Langkah ini dilakukan agar aktivitas ARP dapat diamati secara langsung melalui Wireshark.
 
 4. Ketik kembali "arp -a".
 ![Gambar 5](../assets/image/113.png)
