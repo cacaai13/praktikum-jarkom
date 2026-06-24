@@ -19,6 +19,7 @@ Pada percobaan ini dilakukan perintah ping -n 10 www.ust.hk untuk mengirimkan 10
 ![Gambar 2](../assets/image/106.png)
 Setelah filter icmp diterapkan pada Wireshark, terlihat paket ICMP Echo Request yang dikirim dari host lokal 192.168.0.101 menuju 143.89.209.9 serta paket ICMP Echo Reply yang dikirim kembali oleh host tujuan. Jumlah paket yang tampil adalah 20 paket, terdiri dari 10 Echo Request dan 10 Echo Reply sesuai dengan perintah ping -n 10. Pada kolom informasi terlihat nilai TTL sebesar 128 pada paket request dan TTL sebesar 36 pada paket reply. Hasil ini membuktikan bahwa protokol ICMP digunakan oleh program Ping untuk menguji konektivitas jaringan dan mengukur waktu tempuh paket antara host sumber dan host tujuan.
 
+##
 ## 12.3 ICMP dan Traceroute
 **Langkah-langkah:**
 1. Buka _"Windows Command Prompt "_.
