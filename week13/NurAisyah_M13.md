@@ -21,9 +21,11 @@ Kelas: IF-04-02
 2. Ketik "arp -a".
 ![Gambar 3](../assets/image/111.png)
     - Terdapat entri dinamis yang memetakan alamat IP 192.168.0.1 ke alamat MAC 74-da-88-20-18-6c. Entri ini menunjukkan bahwa komputer telah berkomunikasi dengan gateway/router sehingga pasangan alamat IP dan alamat fisik tersebut disimpan sementara di cache ARP untuk mempercepat proses komunikasi berikutnya. Selain itu, terdapat beberapa entri bertipe static seperti alamat multicast dan broadcast yang digunakan untuk kebutuhan komunikasi jaringan tertentu.
+
 3. Lalu ketik "arp -d *".
 ![Gambar 4](../assets/image/112.png)
     - Pada tahap ini dilakukan penghapusan seluruh entri ARP cache menggunakan perintah arp -d *. Perintah tersebut menghapus entri ARP dinamis yang tersimpan pada komputer sehingga ketika perangkat kembali berkomunikasi dengan host lain, sistem harus melakukan proses ARP Request dan ARP Reply untuk memperoleh alamat MAC tujuan. Langkah ini dilakukan agar aktivitas ARP dapat diamati secara langsung melalui Wireshark.
+    
 4. Ketik kembali "arp -a".
 ![Gambar 5](../assets/image/113.png)
     - Setelah perintah penghapusan dijalankan, isi ARP cache diperiksa kembali menggunakan arp -a. Terlihat bahwa entri dinamis untuk gateway sudah tidak ada lagi dan yang tersisa hanya beberapa entri bertipe static seperti alamat multicast dan broadcast. Hal ini menunjukkan bahwa proses penghapusan ARP cache berhasil dilakukan. Ketika komputer kembali mengakses jaringan, entri dinamis akan dibuat ulang melalui mekanisme ARP untuk memperoleh alamat MAC perangkat tujuan.
