@@ -16,7 +16,8 @@ Kelas: IF-04-02
 5. Filter dengan mengetikkan "dhcp". Lalu amati.
 ![Gambar 3](../assets/image/100.png)
 
-## \nAnalisis DHCP DORA
+##
+## Analisis DHCP DORA
 1. DHCP Discover
 ![Gambar 4](../assets/image/101.png)
 Pada tahap DHCP Discover, client mengirimkan pesan broadcast ke alamat 255.255.255.255 untuk mencari server DHCP yang tersedia pada jaringan. Pada paket yang ditangkap Wireshark terlihat sumber alamat IP masih 0.0.0.0 karena client belum memiliki alamat IP. Pesan ini merupakan langkah awal dalam proses DORA untuk menemukan server DHCP yang dapat memberikan konfigurasi jaringan.
