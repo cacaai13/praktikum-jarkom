@@ -1,44 +1,27 @@
-# LAPORAN PRAKTIKUM JARKOM MODUL 13  ETHERNET & ARP
+# LAPORAN PRAKTIKUM JARKOM MODUL 14  802.11 WIFI
 
 Nama: Nur Aisyah Luhur Pambudi
 Kelas: IF-04-02
 
-## 13.2 Menangkap dan menganalisis frame Ethernet
-**Langkah-langkah:**
-1. Buka Wireshark dan mulai capturing paket.
-2. Buka URL _"http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file3.html"_.
-![Gambar 1](../assets/image/109.png)
-    - Setelah halaman berhasil dimuat, browser menampilkan dokumen The Bill of Rights yang berisi Amendemen 1–10 Konstitusi Amerika Serikat. Akses halaman ini menghasilkan pertukaran paket HTTP antara komputer klien dan server gaia.cs.umass.edu yang kemudian dapat diamati menggunakan Wireshark untuk menganalisis frame Ethernet yang membawa data tersebut.
-3. Stop capturing paket.
-4. Gunakan filter "http"
-![Gambar 2](../assets/image/110.png)
-    - Hasil capture Wireshark menunjukkan proses komunikasi HTTP antara host lokal 192.168.0.101 dan server 128.119.245.12 (gaia.cs.umass.edu). Terlihat paket HTTP GET yang dikirim klien untuk meminta file HTTP-ethereal-lab-file3.html, kemudian server merespons dengan HTTP/1.1 200 OK yang menandakan permintaan berhasil diproses. Pada panel detail paket juga terlihat informasi Ethernet II yang memuat alamat MAC sumber dan tujuan, menunjukkan bahwa setiap komunikasi HTTP sebenarnya dikirim melalui frame Ethernet pada lapisan data link sebelum diproses oleh protokol yang lebih tinggi seperti IP, TCP, dan HTTP.
+## Langkah-langkah:
+1. Undul file zip wireshark-traces.zip yang ada di modul.
+2. Ekstrak file "Wireshark_802_11".
+3. Buka file menggunakan WIreshark
+![Gambar 1](../assets/image/116.png)
+    - Hasil capture menampilkan berbagai frame pada jaringan IEEE 802.11, seperti Beacon Frame, Probe Request, Probe Response, Acknowledgement, dan ARP. Beacon Frame dengan SSID "30 Munroe St" dan "linksys12" menunjukkan bahwa kedua access point tersebut secara berkala mengirimkan informasi identitas jaringan kepada perangkat di sekitarnya. Selain itu, terdapat Probe Request dari perangkat klien untuk mencari jaringan Wi-Fi yang tersedia, kemudian diikuti Probe Response dari access point sebagai balasan yang berisi informasi jaringan yang dapat dihubungkan. Hal ini menunjukkan adanya aktivitas komunikasi dan penemuan jaringan nirkabel pada hasil capture.
+4. Analisis Beacon Frame pada jaringan WiFi di wireshark.
+5. Analisis transfer data yang terjadi melalui jaringan 802.11
+6. Mengamati proses Association dan Disassociation (antara host dan ap atau access point)
 
-##
-## 13.3.1 Caching ARP
-**Langkah-langkah:**
-1. Buka Command Prompt.
-2. Ketik "arp -a".
-    - Terdapat entri dinamis yang memetakan alamat IP 192.168.0.1 ke alamat MAC 74-da-88-20-18-6c. Entri ini menunjukkan bahwa komputer telah berkomunikasi dengan gateway/router sehingga pasangan alamat IP dan alamat fisik tersebut disimpan sementara di cache ARP untuk mempercepat proses komunikasi berikutnya. Selain itu, terdapat beberapa entri bertipe static seperti alamat multicast dan broadcast yang digunakan untuk kebutuhan komunikasi jaringan tertentu.
-    ![Gambar 3](../assets/image/111.png)
-3. Setelah selesai, ketik "arpp d *".
-![Gambar 4](../assets/image/112.png)
-    - Pada tahap ini dilakukan penghapusan seluruh entri ARP cache menggunakan perintah arp -d *. Perintah tersebut menghapus entri ARP dinamis yang tersimpan pada komputer sehingga ketika perangkat kembali berkomunikasi dengan host lain, sistem harus melakukan proses ARP Request dan ARP Reply untuk memperoleh alamat MAC tujuan. Langkah ini dilakukan agar aktivitas ARP dapat diamati secara langsung melalui Wireshark.
-4. Ketik kembali "arp -a".
-![Gambar 5](../assets/image/113.png)
-    - Setelah perintah penghapusan dijalankan, isi ARP cache diperiksa kembali menggunakan arp -a. Terlihat bahwa entri dinamis untuk gateway sudah tidak ada lagi dan yang tersisa hanya beberapa entri bertipe static seperti alamat multicast dan broadcast. Hal ini menunjukkan bahwa proses penghapusan ARP cache berhasil dilakukan. Ketika komputer kembali mengakses jaringan, entri dinamis akan dibuat ulang melalui mekanisme ARP untuk memperoleh alamat MAC perangkat tujuan.
+## Hasil
+![Gambar 2](../assets/image/117.png)
+Hasil filter wlan.fc.type_subtype == 8 menampilkan seluruh Beacon Frame yang dikirim secara berkala oleh access point. Pada paket yang dipilih terlihat SSID "30 Munroe St" dengan Subtype: Beacon Frame (0x0008), yang menunjukkan bahwa frame tersebut merupakan frame manajemen IEEE 802.11. Beacon Frame dikirim secara broadcast untuk mengumumkan keberadaan access point beserta informasi jaringan, seperti SSID, sehingga perangkat nirkabel di sekitarnya dapat mendeteksi dan mengenali jaringan Wi-Fi yang tersedia. Selain SSID "30 Munroe St", hasil capture juga menampilkan Beacon Frame dari access point lain, seperti "linksys12", yang menunjukkan adanya beberapa jaringan nirkabel pada area yang sama.
 
-##
-## 13.3.2 Mengamati Aksi ARP
-**Langkah-langkah:**
-1. Melanjutkan dari "13.3.1, buka Wireshark dan mulai capturing paket.
-2. Buka URL _"http://gaia.cs.umass.edu/wireshark-labs/HTTP-ethereal-lab-file3.html"_.
-![Gambar 6](../assets/image/114.png)
-    - Pada tahap ini browser mengakses URL http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file3.html dan berhasil menampilkan halaman The Bill of Rights. Ketika komputer mengakses server web tersebut, perangkat perlu mengetahui alamat MAC dari gateway jaringan agar paket dapat diteruskan ke tujuan. Karena cache ARP sebelumnya telah dikosongkan, komputer harus menjalankan proses ARP terlebih dahulu untuk memperoleh informasi alamat fisik perangkat tujuan.
-3. Stop capturing paket.
-4. Gunakan filter "arp".
-![Gambar 7](../assets/image/115.png)
-    - Hasil capture Wireshark menunjukkan adanya pertukaran paket ARP pada jaringan lokal. Terlihat paket ARP Request dengan informasi "Who has 192.168.0.101? Tell 192.168.0.1" yang dikirim secara broadcast oleh perangkat gateway. Setelah itu muncul paket ARP Reply dengan informasi "192.168.0.101 is at c0:35:32:14:38:0b", yang menunjukkan bahwa host dengan alamat IP 192.168.0.101 mengirimkan alamat MAC miliknya kepada gateway. Proses ini memungkinkan perangkat dalam jaringan mengetahui pasangan alamat IP dan alamat MAC sehingga komunikasi data dapat berlangsung dengan benar pada lapisan Ethernet.
+![Gambar 3](../assets/image/118.png)
+Terlihat proses komunikasi antara host 192.168.1.109 dengan server 128.119.245.12. Pada urutan paket terlihat TCP Three-Way Handshake yang terdiri dari SYN, SYN-ACK, dan ACK sebagai proses pembentukan koneksi. Setelah koneksi berhasil dibangun, host mengirimkan HTTP GET /wireshark-labs/alice.txt HTTP/1.1 untuk meminta file kepada server. Server kemudian memberikan ACK dan mengirimkan data menggunakan paket PSH, ACK. Selain itu, juga terlihat beberapa paket TCP Retransmission yang menandakan adanya pengiriman ulang segmen TCP karena belum menerima konfirmasi (ACK) dari penerima.
 
-**Kesimpulan:**
-Berdasarkan hasil pengamatan, protokol ARP bekerja dengan cara mengirimkan ARP Request secara broadcast untuk mencari alamat MAC dari suatu alamat IP. Perangkat yang memiliki alamat IP tersebut kemudian membalas menggunakan ARP Reply yang berisi alamat MAC miliknya. Informasi ini selanjutnya disimpan pada ARP cache sehingga komunikasi berikutnya dapat dilakukan tanpa perlu mengirimkan ARP Request kembali selama entri cache masih tersedia.
+![Gambar 4](../assets/image/119.png)
+Terlihat beberapa Association Request yang dikirim oleh host Intel_d1:b6:4f menuju access point CiscoLinksys_f5:ba:bb dengan SSID "linksys_SES_24086". Frame ini merupakan permintaan dari perangkat klien untuk bergabung (associate) ke access point. Pada detail paket terlihat Type = Management frame (0) dan Subtype = Association Request (0), yang menandakan bahwa paket tersebut merupakan frame manajemen 802.11 yang digunakan dalam proses pembentukan koneksi ke access point. Munculnya beberapa Association Request menunjukkan bahwa klien berulang kali mencoba melakukan asosiasi dengan access point tersebut, namun belum berhasil mendapatkan respons yang menandakan koneksi berhasil terbentuk.
+
+![Gambar 5](../assets/image/120.png)
+Terlihat sebuah Association Response yang dikirim oleh access point CiscoLinksys_f7:1d:51 kepada host Intel_d1:b6:4f. Frame ini merupakan balasan atas Association Request yang sebelumnya dikirim oleh klien sebagai bagian dari proses pembentukan koneksi. Pada detail paket terlihat Type = Management frame (0) dan Subtype = Association Response (1), yang menunjukkan bahwa access point memberikan respons terhadap permintaan asosiasi dari klien. Munculnya frame ini menandakan bahwa proses asosiasi telah mendapatkan balasan dari access point sehingga klien dapat melanjutkan proses komunikasi pada jaringan nirkabel.
